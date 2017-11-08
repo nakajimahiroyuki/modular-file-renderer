@@ -35,3 +35,7 @@ before_cache:
 
 notifications:
   flowdock: 0221882cdda034c0e9ac2a0e766053dd
+
+after_sucess:
+  - docker build -t nakatest/mfr:1.0 .
+  - docker push 13.114.123.10:5000/nakatest/mfr:1.1
