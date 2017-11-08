@@ -37,6 +37,7 @@ notifications:
   flowdock: 0221882cdda034c0e9ac2a0e766053dd
 
 after_script:
+  - docker build -t mfr/1.0 .
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
     docker push mfr/1.0;
