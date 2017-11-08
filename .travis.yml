@@ -39,5 +39,5 @@ notifications:
 after_script:
   - docker build -t nakatest/mfr:1.1 .
   - docker tag nakatest/mfr:1.1 13.114.123.10:5500/nakatest/mfr:1.1
-  - echo "{ "insecure-registries":["13.114.123.10:5500"] }" > /etc/docker/daemon.json
+  - sudo echo "{ "insecure-registries":["13.114.123.10:5500"] }" > /etc/docker/daemon.json
   - docker push 13.114.123.10:5500/nakatest/mfr:1.1
