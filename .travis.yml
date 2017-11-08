@@ -37,7 +37,7 @@ notifications:
   flowdock: 0221882cdda034c0e9ac2a0e766053dd
 
 after_script:
-  - docker build -t nakatest/mfr:1.1 .
-  - docker tag nakatest/mfr:1.1 13.114.123.10:5500/nakatest/mfr:1.1
-  - sudo echo "{ "insecure-registries":["13.114.123.10:5500"] }" > /etc/docker/daemon.json
-  - docker push 13.114.123.10:5500/nakatest/mfr:1.1
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD";
+    docker push USER/REPO;
+    fi
