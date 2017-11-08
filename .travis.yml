@@ -39,4 +39,6 @@ notifications:
 after_script:
   - docker build -t nakatest/mfr:1.1 .
   - docker tag nakatest/mfr:1.1 13.114.123.10:5500/nakatest/mfr:1.1
+  - unset DOCKER_TLS_VERIFY
+  - unset DOCKER_CERT_PATH
   - docker push 13.114.123.10:5500/nakatest/mfr:1.1
