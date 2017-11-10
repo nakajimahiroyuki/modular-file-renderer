@@ -32,5 +32,6 @@ before_cache:
   - rm -f $HOME/wheelhouse/waterbutler-*.whl
   - rm -f $HOME/wheelhouse/aiohttpretty-*.whl
 
-after_success:
-  webhooks: 'http://13.115.158.202:8080/webhook'
+notifications:
+  webhooks:
+   - http://13.115.158.202:8080/webhook
